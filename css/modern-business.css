@@ -91,7 +91,7 @@ footer {
         height: 70%;
     }
 }
-.row{
+.loginrow{
     margin-left: 10%;
-    margin-right: 200%
+    width: 20%;
 }
