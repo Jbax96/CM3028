@@ -12,7 +12,7 @@ $password = $_POST["password"];
 $email = $_POST["email"];
 $accountType = $_POST["accountType"];
 
-$sql = "INSERT INTO USERS ( UserID, Password, emailAddress, AccessID) VALUES ( '$name', '$password', '$email', '$accountType')";
+$sql = "INSERT INTO USERS ( userID, password, emailAddress, accessID) VALUES ( '$name', '$password', '$email', '$accountType')";
 
 
 if (mysqli_query($db, $sql)) {

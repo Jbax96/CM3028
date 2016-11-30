@@ -16,7 +16,7 @@ if($db ->connect_errno){
     die('Connection failed: '.$db->connect_error.'.');
 }
 
-echo "Connected successfully";
+echo "Connected successfully.";
 
 /* Just occurred to me that currently, every time we try to CONNECT to the database,
  * we are creating new tables. This ought to be fixed.
