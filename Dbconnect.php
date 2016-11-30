@@ -6,6 +6,9 @@
  * Time: 11:43
  */
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 define('DB_SERVER','eu-cdbr-azure-north-e.cloudapp.net');
 define('DB_USERNAME','bc1b3a7172a2b2');
 define('DB_PASSWORD','e18f37e0');
@@ -13,7 +16,6 @@ define('DB_DATABASE','goportlethen');
 
 $db = mysqli_connect(DB_SERVER,DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 if($db ->connect_errno){
-    echo '<script type="text/javascript">alert("Couldnt connect.");</script>';
     die('ConnectFailed['.$db->connect_error.'}');
 }
 

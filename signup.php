@@ -5,6 +5,10 @@
  * Date: 30/11/2016
  * Time: 13:01
  */
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 include ("Dbconnect.php");
 $name = $_POST["name"];
 $password = $_POST["password"];
