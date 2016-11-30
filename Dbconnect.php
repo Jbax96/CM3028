@@ -18,20 +18,30 @@ if($db ->connect_errno){
 
 echo "Connected successfully";
 
+/* Just occurred to me that currently, every time we try to CONNECT to the database,
+ * we are creating new tables. This ought to be fixed.
+ */
+
+/* Also - IMPORTANT
+ * I changed the variable names to follow camelCase because they were all over the place
+ * and not consistent. ID is still capitalised as though it is two separate letters
+ * rather than one word.
+ */
+
 //SQL To Create Table USERS
 $sql = "CREATE TABLE USERS (
-UserID VARCHAR(15) AUTO_INCREMENT PRIMARY KEY, 
-Password VARCHAR(30) NOT NULL,
+userID VARCHAR(15) AUTO_INCREMENT PRIMARY KEY, 
+password VARCHAR(30) NOT NULL,
 emailAddress VARCHAR(50) NOT NULL,
-AccessID VARCHAR(6)
+accessID VARCHAR(6)
 )";
 
 //SQL To Create Table ACCESS RIGHTS
 $sql = "CREATE TABLE ACCESSRIGHTS(
-AccessID CHAR(6)  AUTO_INCREMENT PRIMARY KEY,
-UserID VARCHAR(15) NOT NULL,
-FOREIGN KEY fk_UserID(UserID)
-   REFERENCES USERS(UserID)
+accessID CHAR(6)  AUTO_INCREMENT PRIMARY KEY,
+userID VARCHAR(15) NOT NULL,
+FOREIGN KEY fk_UserID(userID)
+   REFERENCES USERS(userID)
    ON UPDATE CASCADE
    ON DELETE RESTRICT,
 description VARCHAR(60) NOT NULL
@@ -40,29 +50,29 @@ description VARCHAR(60) NOT NULL
 
 //SQL To Create Table CLUB
 $sql = "CREATE TABLE CLUB(
-ClubID CHAR(6)AUTO_INCREMENT PRIMARY KEY,
-AdminID VARCHAR(15) NOT NULL,
-FOREIGN KEY fk_admin(AdminID)
-   REFERENCES USERS(UserID)
+clubID CHAR(6)AUTO_INCREMENT PRIMARY KEY,
+adminID VARCHAR(15) NOT NULL,
+FOREIGN KEY fk_admin(adminID)
+   REFERENCES USERS(userID)
    ON UPDATE CASCADE
    ON DELETE RESTRICT,
 clubName VARCHAR(30) NOT NULL,
 clubDescription VARCHAR(50) NOT NULL,
 contactInfo VARCHAR(20) NOT NULL,
-Genre VARCHAR(50) NOT NULL
+genre VARCHAR(50) NOT NULL
 )";
 
 //SQL To Create Table PHOTO
 $sql = "CREATE TABLE PHOTO(
-PhotoID CHAR(6) AUTO_INCREMENT PRIMARY KEY,
-ClubID CHAR(6) NOT NULL,
-FOREIGN KEY fk_club(ClubID)
-   REFERENCES CLUB(ClubID)
+photoID CHAR(6) AUTO_INCREMENT PRIMARY KEY,
+clubID CHAR(6) NOT NULL,
+FOREIGN KEY fk_club(clubID)
+   REFERENCES CLUB(clubID)
    ON UPDATE CASCADE
    ON DELETE RESTRICT,
-AdminID VARCHAR(15) NOT NULL,
-FOREIGN KEY fk_admin(AdminID)
-   REFERENCES USERS(UserID)
+adminID VARCHAR(15) NOT NULL,
+FOREIGN KEY fk_admin(adminID)
+   REFERENCES USERS(userID)
    ON UPDATE CASCADE
    ON DELETE RESTRICT,
 photo LONGBLOB NOT NULL,
@@ -71,16 +81,16 @@ description VARCHAR(50) NOT NULL
 
 //SQL To Create Table GENRE
 $sql = "CREATE TABLE GENRE(
-Genre VARCHAR(20)  AUTO_INCREMENT PRIMARY KEY,
-ClubID CHAR(6) NOT NULL,
-FOREIGN KEY fk_club(ClubID)
-   REFERENCES CLUB(ClubID)
+genre VARCHAR(20)  AUTO_INCREMENT PRIMARY KEY,
+clubID CHAR(6) NOT NULL,
+FOREIGN KEY fk_club(clubID)
+   REFERENCES CLUB(clubID)
    ON UPDATE CASCADE
    ON DELETE RESTRICT,
 name VARCHAR(50) NOT NULL,
-AdminID VARCHAR(15) NOT NULL,
-FOREIGN KEY fk_admin(AdminID)
-   REFERENCES USERS(UserID)
+adminID VARCHAR(15) NOT NULL,
+FOREIGN KEY fk_admin(adminID)
+   REFERENCES USERS(userID)
    ON UPDATE CASCADE
    ON DELETE RESTRICT,
 name VARCHAR(50) NOT NULL,
@@ -90,22 +100,20 @@ description VARCHAR(50) NOT NULL
 //SQL To Create Table LOCATIONS
 
 $sql ="CREATE TABLE LOCATIONS(
-LocationID CHAR(6)  AUTO_INCREMENT PRIMARY KEY,
+locationID CHAR(6)  AUTO_INCREMENT PRIMARY KEY,
 name VARCHAR(30) NOT NULL,
 startPoint VARCHAR(10) NOT NULL,
 endPoint VARCHAR(10) NOT NULL,
-locationType() VARCHAR(20) NOT NULL 
-)
-ALTER TABLE<LOCATIONS> ADD CONSTRAINT 
-my_constraint CHECK (locationType = 'Viewpoint' OR locationType = 'Routes' OR locationType = 'Landmarks')
-";
+locationType VARCHAR(20) NOT NULL,
+CONSTRAINT locationType_constraint CHECK (locationType = 'Viewpoint' OR locationType = 'Routes' OR locationType = 'Landmarks'
+)";
 
 //SQL To Create Table AREA
 $sql ="CREATE TABLE AREA(
-AreaID CHAR(6)  AUTO_INCREMENT PRIMARY KEY,
-LocationID CHAR(6) NOT NULL,
-FOREIGN KEY fk_location(LocationID)
-   REFERENCES LOCATIONS(LocationID)
+areaID CHAR(6)  AUTO_INCREMENT PRIMARY KEY,
+locationID CHAR(6) NOT NULL,
+FOREIGN KEY fk_location(locationID)
+   REFERENCES LOCATIONS(locationID)
    ON UPDATE CASCADE
    ON DELETE RESTRICT,
 name VARCHAR(50) NOT NULL,
@@ -114,18 +122,17 @@ description VARCHAR(50) NOT NULL
 
 
 $sql = "CREATE TABLE GEODATA(
-GeoID CHAR(6) AUTO_INCREMENT PRIMARY KEY,
-LocationID CHAR(6) NOT NULL,
- FOREIGN KEY fk_location(LocationID)
-   REFERENCES LOCATIONS(LocationID)
+geoID CHAR(6) AUTO_INCREMENT PRIMARY KEY,
+locationID CHAR(6) NOT NULL,
+ FOREIGN KEY fk_location(locationID)
+   REFERENCES LOCATIONS(locationID)
    ON UPDATE CASCADE
    ON DELETE RESTRICT,
 description VARCHAR(50) NOT NULL
 )";
 
-?>
 mysqli_close($db);
-)"
+?>
 
 
 

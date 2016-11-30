@@ -14,11 +14,11 @@ $accountType = $_POST["accountType"];
 $sql = "INSERT INTO USERS ( UserID, Password, emailAddress, AccessID) VALUES ( '$name', '$password', '$email', '$accountType')";
 
 
-if (mysqli_query($conn, $sql)) {
+if (mysqli_query($db, $sql)) {
     echo "New record created successfully";
 } else {
-    echo "Error: " .$sql. mysqli_error($conn);
+    echo "Error: " .$sql. mysqli_error($db);
 }
 
-mysqli_close($conn);
+mysqli_close($db);
 ?>

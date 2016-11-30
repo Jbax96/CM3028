@@ -87,11 +87,11 @@
 <div class="loginrow">
     <div class="col-md-8">
         <h3>Sign Up</h3>
-        <form name="sentMessage" id="contactForm" novalidate>
+        <form name="sentMessage" id="contactForm" action="signup.php" method="post">
             <div class="control-group form-group">
                 <div class="controls">
                     <label>Username:</label>
-                    <input type="text" maxlength="15" class="form-control" name="name" required data-validation-required-message="Username.">
+                    <input type="text" maxlength="15" class="form-control" name="name" required data-validation-required-message="Please enter a username.">
                     <p class="help-block"></p>
                 </div>
             </div>
@@ -131,10 +131,6 @@
     </div>
 
 </div>
-
-<?php
-include('signup.php');
-?>
 
 <!-- Password Verification -->
 <script src="js/confirm_password.js"></script>

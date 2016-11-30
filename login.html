@@ -88,18 +88,18 @@
 <div class="loginrow">
     <div class="col-md-8">
         <h3>Log In</h3>
-        <form name="sentMessage" id="contactForm" novalidate>
+        <form name="sentMessage" id="contactForm" action="checklogin.php" method="post">
             <div class="control-group form-group">
                 <div class="controls">
                     <label>Username:</label>
-                    <input type="text" class="form-control" id="name" required data-validation-required-message="Please enter your name.">
+                    <input type="text" class="form-control" name="name" required data-validation-required-message="Please enter a username.">
                     <p class="help-block"></p>
                 </div>
             </div>
             <div class="control-group form-group">
                 <div class="controls">
                     <label>Password:</label>
-                    <input type="tel" class="form-control" id="phone" required data-validation-required-message="Please enter your phone number.">
+                    <input type="tel" class="form-control" name="password" required data-validation-required-message="Please enter a password.">
                 </div>
             </div>
             <div id="success"></div>
