@@ -12,12 +12,15 @@ $email = $_POST["email"];
 $accountType = $_POST["accountType"];
 
 $sql = "INSERT INTO USERS ( UserID, Password, emailAddress, AccessID) VALUES ( '$name', '$password', '$email', '$accountType')";
+echo '<script type="text/javascript">alert("Attempting to insert into USERS.");</script>';
 
 
 if (mysqli_query($db, $sql)) {
     echo "New record created successfully";
+    echo '<script type="text/javascript">alert("Got to record created.");</script>';
 } else {
     echo "Error: " .$sql. mysqli_error($db);
+    echo '<script type="text/javascript">alert("Got to record failed to create.");</script>';
 }
 
 mysqli_close($db);

@@ -13,6 +13,7 @@ define('DB_DATABASE','goportlethen');
 
 $db = mysqli_connect(DB_SERVER,DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 if($db ->connect_errno){
+    echo '<script type="text/javascript">alert("Couldnt connect.");</script>';
     die('ConnectFailed['.$db->connect_error.'}');
 }
 
