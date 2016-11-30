@@ -91,32 +91,32 @@
             <div class="control-group form-group">
                 <div class="controls">
                     <label>Username:</label>
-                    <input type="text" maxlength="15" class="form-control" name="name" required data-validation-required-message="Username.">
+                    <input type="text" maxlength="15" class="form-control" id="name" required data-validation-required-message="Username.">
                     <p class="help-block"></p>
                 </div>
             </div>
             <div class="control-group form-group">
                 <div class="controls">
                     <label>Password:</label>
-                    <input type="password" maxlength="30" class="form-control" name="password" required data-validation-required-message="Please enter your desired password.">
+                    <input type="password" maxlength="30" class="form-control" id="password" required data-validation-required-message="Please enter your desired password.">
                 </div>
             </div>
             <div class="control-group form-group">
                 <div class="controls">
                     <label>Re-enter Password:</label>
-                    <input type="password" maxlength="30" class="form-control" name="password2" required data-validation-required-message="Please re-enter your password.">
+                    <input type="password" maxlength="30" class="form-control" id="password2" required data-validation-required-message="Please re-enter your password.">
                 </div>
             </div>
             <div class="control-group form-group">
                 <div class="controls">
                     <label>Email:</label>
-                    <input type="email" maxlength="50" class="form-control" name="email" required data-validation-required-message="Please enter your email address.">
+                    <input type="email" maxlength="50" class="form-control" id="email" required data-validation-required-message="Please enter your email address.">
                 </div>
             </div>
             <div class ="control-group form-group">
                 <div class ="controls">
                     <label>Account Type:</label>
-                     <select name="accountType">
+                     <select name="Account Type" id="accountType">
                         <option value="1">Contributor</option>
                         <option value="2">NKPAG</option>
                         <option value="3">Club Administrator</option>
@@ -133,12 +133,22 @@
 </div>
 
 <?php
-include('signup.php');
+include ("Dbconnect.php");
+$name = $_POST["name"];
+$password = $_POST["password"];
+$email = $_POST["email"];
+$accountType = $_POST["accountType"];
+
+$sql = "INSERT INTO USERS ( UserID, Password, emailAddress, AccessID) VALUES ( '$name', '$password', '$email', '$accountType')";
+
+if ($db ->query($sql) === TRUE ) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " .$sql. mysqli_error($conn);
+}
+
+mysqli_close($conn);
 ?>
-
-<!-- Password Verification -->
-<script src="js/confirm_password.js"></script>
-
 <!-- jQuery -->
 <script src="js/jquery.js"></script>
 
