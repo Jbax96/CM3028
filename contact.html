@@ -170,7 +170,7 @@
         <div class="col-md-4">
             <h3>Contact Details</h3>
             <p>
-                3481 Melrose Place<br>Beverly Hills, CA 90210<br>
+                Portlethen Academy, Bruntland Rd, Portlethen, Aberdeen AB12 4QL<br>
             </p>
             <p><i class="fa fa-phone"></i>
                 <abbr title="Phone">P</abbr>: (123) 456-7890</p>
@@ -196,6 +196,28 @@
         </div>
     </div>
     <!-- /.row -->
+        <!--$username = mysql_real_escape_string($_POST['username']);
+$password = mysql_real_escape_string($_POST['password']);
+$sql = "select * from tbl_login where username = '$username' and password = '$password' ";
+$result = mysql_query($sql);
+$count = mysql_num_rows($result);
+
+if($count==1)
+{
+    $_SESSION["username"] = $username;
+
+    $info = mysql_fetch_array($result);
+    if($info['status'] == 1)
+    {
+        $_SESSION['admin_is_logged'] = true;
+    }
+
+    header("location:home.php");
+}
+else
+{
+    echo "Wrong Username or Password";
+} -->
 
     <!-- Contact Form -->
     <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
