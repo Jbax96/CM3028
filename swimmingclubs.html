@@ -103,6 +103,28 @@
     <!-- /.row -->
 
     <!-- Project One -->
+    <!--$username = mysql_real_escape_string($_POST['username']);
+$password = mysql_real_escape_string($_POST['password']);
+$sql = "select * from tbl_login where username = '$username' and password = '$password' ";
+$result = mysql_query($sql);
+$count = mysql_num_rows($result);
+
+if($count==1)
+{
+$_SESSION["username"] = $username;
+
+$info = mysql_fetch_array($result);
+if($info['status'] == 1)
+{
+$_SESSION['admin_is_logged'] = true;
+}
+
+header("location:home.php");
+}
+else
+{
+echo "Wrong Username or Password";
+} -->
     <div class="row">
         <div class="col-md-7">
             <a href="Clubs.html">
