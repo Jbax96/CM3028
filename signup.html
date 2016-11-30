@@ -116,7 +116,7 @@
             <div class ="control-group form-group">
                 <div class ="controls">
                     <label>Account Type:</label>
-                     <select name="Account Type">
+                     <select name="Account Type" id="accountType">
                         <option value="1">Contributor</option>
                         <option value="2">NKPAG</option>
                         <option value="3">Club Administrator</option>
@@ -131,6 +131,17 @@
     </div>
 
 </div>
+
+<?php
+include ("Dbconnect.php");
+$name = $_POST["name"];
+$password = $_POST["password"];
+$email = $_POST["email"];
+$accountType = $_POST["accountType"];
+
+$sql = "INSERT INTO USERS ( UserID, Password, emailAddress, AccessID) VALUES ( '$name', '$password', '$email', '$accountType')";
+
+?>
 <!-- jQuery -->
 <script src="js/jquery.js"></script>
 
@@ -141,6 +152,8 @@
 <!-- Do not edit these files! In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
 <script src="js/jqBootstrapValidation.js"></script>
 <script src="js/contact_me.js"></script>
+
+
 
 </body>
 
