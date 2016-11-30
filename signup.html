@@ -141,7 +141,7 @@ $accountType = $_POST["accountType"];
 
 $sql = "INSERT INTO USERS ( UserID, Password, emailAddress, AccessID) VALUES ( '$name', '$password', '$email', '$accountType')";
 
-if ($db ->query($sql) === TRUE ) {
+if (mysqli_query(db, $sql) ) {
     echo "New record created successfully";
 } else {
     echo "Error: " .$sql. mysqli_error($db);
