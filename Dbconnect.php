@@ -18,6 +18,7 @@ if($db ->connect_errno){
 
 echo "Connected successfully.";
 
+
 /* Just occurred to me that currently, every time we try to CONNECT to the database,
  * we are creating new tables. This ought to be fixed.
  */
@@ -27,6 +28,7 @@ echo "Connected successfully.";
  * and not consistent. ID is still capitalised as though it is two separate letters
  * rather than one word.
  */
+
 
 //SQL To Create Table USERS
 $sql = "CREATE TABLE USERS (
@@ -98,7 +100,6 @@ description VARCHAR(50) NOT NULL
 )";
 
 //SQL To Create Table LOCATIONS
-
 $sql ="CREATE TABLE LOCATIONS(
 locationID CHAR(6)  AUTO_INCREMENT PRIMARY KEY,
 name VARCHAR(30) NOT NULL,
@@ -120,7 +121,7 @@ name VARCHAR(50) NOT NULL,
 description VARCHAR(50) NOT NULL  
 )";
 
-
+//SQL To Create Table GEODATA
 $sql = "CREATE TABLE GEODATA(
 geoID CHAR(6) AUTO_INCREMENT PRIMARY KEY,
 locationID CHAR(6) NOT NULL,
