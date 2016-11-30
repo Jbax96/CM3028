@@ -16,6 +16,8 @@ if($db ->connect_errno){
     die('ConnectFailed['.$db->connect_error.'}');
 }
 
+echo "Connected successfully";
+
 //SQL To Create Table USERS
 $sql = "CREATE TABLE USERS (
 UserID CHAR(6) AUTO_INCREMENT PRIMARY KEY, 
@@ -107,7 +109,7 @@ FOREIGN KEY fk_location(LocationID)
    ON UPDATE CASCADE
    ON DELETE RESTRICT,
 name VARCHAR(50) NOT NULL,
-description VARCHAR(50) NOT NULL
+description VARCHAR(50) NOT NULL  
 )";
 
 
