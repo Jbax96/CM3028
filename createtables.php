@@ -8,12 +8,12 @@
 
 include ("Dbconnect.php");
 
+echo "help pls <br>";
+
 /* I changed the variable names to follow camelCase because they were all over the place
  * and not consistent. ID is still capitalised as though it is two separate letters
  * rather than one word.
  */
-
-echo "HELP <br>";
 
 //SQL To Create Table USERS
 $sql = "CREATE TABLE USERS (
