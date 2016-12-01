@@ -87,7 +87,7 @@ footer {
         margin-bottom: 30px;
     }
     .loginrow{
-        width:300px;
+        width:50%;
     }
 }
 
@@ -96,7 +96,7 @@ footer {
         margin-bottom: 15px;
     }
     .loginrow{
-        width:300px;
+        width:50%;
     }
 
     header.carousel .carousel {
