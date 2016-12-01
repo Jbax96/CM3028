@@ -23,10 +23,10 @@ emailAddress VARCHAR(50) NOT NULL,
 accessID VARCHAR(6)
 )";
 
-if (mysqli_query(db, $sql)) {
+if (mysqli_query($db, $sql)) {
     echo "Table MyGuests created successfully";
 } else {
-    echo "Error creating table: " . mysqli_error(db);
+    echo "Error creating table: " . mysqli_error($db);
 }
 
 //SQL To Create Table ACCESS RIGHTS
