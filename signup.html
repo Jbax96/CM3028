@@ -87,8 +87,11 @@
 <div class="loginrow">
     <div class="col-md-8">
         <h3>Sign Up</h3>
-        <form action="signup.php" method="post" name="sentMessage">
-            <!-- The name and id fields here break the running of signup.php BUT WHY -->
+        <form action="signup.php" method="post" name="sentMessage" id="contactForm">
+            <!-- The id field here breaks the running of signup.php
+            because of the custom bootstrap script "contact_me.js".
+            We can remove the id entirely but there will be no validation
+            like before, unless we write our own version of the script that doesn't conflict.-->
             <div class="control-group form-group">
                 <div class="controls">
                     <label>Username:</label>
