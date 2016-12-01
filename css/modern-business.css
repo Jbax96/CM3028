@@ -86,11 +86,17 @@ footer {
     .img-related {
         margin-bottom: 30px;
     }
+    .loginrow{
+        width:50%;
+    }
 }
 
 @media(max-width:767px) {
     .img-portfolio {
         margin-bottom: 15px;
+    }
+    .loginrow{
+        width:50%;
     }
 
     header.carousel .carousel {
