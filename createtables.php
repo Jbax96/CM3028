@@ -29,6 +29,8 @@ if (mysqli_query($db, $sql)) {
     echo "Error creating USERS table: " . mysqli_error($db);
 }
 
+#This is unfinished
+
 //SQL To Create Table ACCESS RIGHTS
 $sql = "CREATE TABLE ACCESSRIGHTS(
 accessID CHAR(6)  AUTO_INCREMENT PRIMARY KEY,

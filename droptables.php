@@ -12,4 +12,6 @@ $sql = "IF OBJECT_ID('USERS', 'U') IS NOT NULL
     DROP TABLE USERS;
 ";
 
+#This is unfinished
+
 ?>
