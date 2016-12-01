@@ -21,6 +21,12 @@ emailAddress VARCHAR(50) NOT NULL,
 accessID VARCHAR(6)
 )";
 
+if ($db->query($sql) === TRUE) {
+    echo "Table USERS created successfully";
+} else {
+    echo "Error creating table: " . $db->error;
+}
+
 //SQL To Create Table ACCESS RIGHTS
 $sql = "CREATE TABLE ACCESSRIGHTS(
 accessID CHAR(6)  AUTO_INCREMENT PRIMARY KEY,
@@ -31,7 +37,6 @@ FOREIGN KEY fk_UserID(userID)
    ON DELETE RESTRICT,
 description VARCHAR(60) NOT NULL
 )";
-
 
 //SQL To Create Table CLUB
 $sql = "CREATE TABLE CLUB(
