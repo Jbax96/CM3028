@@ -115,6 +115,8 @@ locationID CHAR(6) NOT NULL,
 description VARCHAR(50) NOT NULL
 )";
 
+echo "All tables created(?)<br>";
+
 mysqli_close($db);
 
 ?>
