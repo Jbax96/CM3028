@@ -24,9 +24,9 @@ accessID VARCHAR(6)
 )";
 
 if (mysqli_query($db, $sql)) {
-    echo "Table MyGuests created successfully";
+    echo "USERS table created successfully";
 } else {
-    echo "Error creating table: " . mysqli_error($db);
+    echo "Error creating USERS table: " . mysqli_error($db);
 }
 
 //SQL To Create Table ACCESS RIGHTS
