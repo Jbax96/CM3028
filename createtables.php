@@ -13,6 +13,8 @@ include ("Dbconnect.php");
  * rather than one word.
  */
 
+echo "HELP <br>";
+
 //SQL To Create Table USERS
 $sql = "CREATE TABLE USERS (
 userID VARCHAR(15) AUTO_INCREMENT PRIMARY KEY, 
@@ -21,10 +23,10 @@ emailAddress VARCHAR(50) NOT NULL,
 accessID VARCHAR(6)
 )";
 
-if ($db->query($sql) === TRUE) {
-    echo "Table USERS created successfully";
+if (mysqli_query(db, $sql)) {
+    echo "Table MyGuests created successfully";
 } else {
-    echo "Error creating table: " . $db->error;
+    echo "Error creating table: " . mysqli_error(db);
 }
 
 //SQL To Create Table ACCESS RIGHTS
