@@ -5,6 +5,7 @@
  */
 
 /* Global Styles */
+/* This file is editable CSS code */
 
 html,
 body {
@@ -67,6 +68,11 @@ header.carousel .fill {
     font-style: italic;
 }
 
+.loginrow{
+    margin-left: 40%;
+    width: 20%;
+}
+
 /* Footer Styles */
 
 footer {
@@ -90,8 +96,4 @@ footer {
     header.carousel .carousel {
         height: 70%;
     }
-}
-.loginrow{
-    margin-left: 40%;
-    width: 20%;
 }
