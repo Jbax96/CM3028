@@ -12,13 +12,13 @@ $password = $_POST["password"];
 $email = $_POST["email"];
 $accountType = $_POST["accountType"];
 
-$sql = "INSERT INTO USERS ( UserID, userPassword, emailAddress, AccessID) VALUES ( '$name', '$password', '$email', '$accountType')";
+$sql = "INSERT INTO USERS ( userID, password, emailAddress, accessID) VALUES ( '$name', '$password', '$email', '$accountType')";
 
 
 if (mysqli_query($db, $sql)) {
-    echo "New record created successfully";
+  echo "New record created successfully";
 } else {
-    echo "Error: " .$sql. mysqli_error($db);
+  echo mysqli_error($db);
 }
 
 mysqli_close($db);
