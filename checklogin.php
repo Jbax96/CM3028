@@ -13,4 +13,6 @@ if($username == "username" && $password == "password"){
     setcookie('','');
 }
 
+header('Location: index.html');
+
 ?>
