@@ -7,9 +7,9 @@
  */
 
 define('DB_SERVER','eu-cdbr-azure-north-e.cloudapp.net');
-define('DB_USERNAME','bc1b3a7172a2b2');
-define('DB_PASSWORD','e18f37e0');
-define('DB_DATABASE','goportlethen');
+define('DB_USERNAME','b2f416f33612bf');
+define('DB_PASSWORD','641fb88b');
+define('DB_DATABASE','acsm_d7dadb6eee93b4a');
 
 $db = mysqli_connect(DB_SERVER,DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 if($db ->connect_errno){
