@@ -22,7 +22,7 @@ echo "Connected successfully";
 //SQL To Create Table USERS
 $sql = "CREATE TABLE 'USERS' (
 UserID VARCHAR(15) NOT NULL,
-userPassword VARCHAR(30) NOT NULL,
+Password VARCHAR(30) NOT NULL,
 emailAddress VARCHAR(50) NOT NULL,
 AccessID VARCHAR(6),
 PRIMARY KEY('UserID')
@@ -111,10 +111,10 @@ description VARCHAR(50) NOT NULL,
 PRIMARY KEY ('GeoID'),
 CONSTRAINT LOCATION_ibfk_8 FOREIGN KEY (LocationID) REFERENCES LOCATIONS (LocationID)
 )";
-
+//mysqli_close($db);
+//)"
 ?>
-mysqli_close($db);
-)"
+
 
 
 
