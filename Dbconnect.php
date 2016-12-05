@@ -22,7 +22,7 @@ echo "Connected successfully";
 //SQL To Create Table USERS
 $sql = "CREATE TABLE 'USERS' (
 UserID VARCHAR(15) NOT NULL,
-Password VARCHAR(30) NOT NULL,
+userPassword VARCHAR(30) NOT NULL,
 emailAddress VARCHAR(50) NOT NULL,
 AccessID VARCHAR(6),
 PRIMARY KEY('UserID')
