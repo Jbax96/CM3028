@@ -20,7 +20,7 @@ if(mysql_num_rows($query) != 0) {
     if (mysqli_query($db, $sql)) {
         echo "New record created successfully";
     } else {
-        echo "Error: " .$sql. mysqli_error($db);
+        echo "Username invalid";
     }
 }
 
