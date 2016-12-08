@@ -21,12 +21,14 @@ if (mysql_num_rows($query) != 0)
 }
     else {
         $sql = "INSERT INTO USERS ( userID, password, emailAddress, accessID) VALUES ( '$name', '$password', '$email', '$accountType')";
-}
-if (mysqli_query($db, $sql)) {
-    echo "New record created successfully";
-} else {
-    echo "Error: " .$sql. mysqli_error($db);
-}
-header("Location: index.html");
+
+        if (mysqli_query($db, $sql)) {
+            echo "New record created successfully";
+            header("Location: index.html");
+        } else {
+            echo "Error: " . $sql . mysqli_error($db);
+        }
+    }
+
 mysqli_close($db);
 ?>
