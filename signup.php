@@ -27,9 +27,7 @@ if(mysql_num_rows($query) > 0) {
     }
 }
 
-
-
-// header("Location: index.html");
+header("location: index.html");
 
 mysqli_close($db);
 ?>
