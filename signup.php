@@ -27,6 +27,6 @@ if (mysqli_query($db, $sql)) {
 } else {
     echo "Error: " .$sql. mysqli_error($db);
 }
-header("Location: index.html");
+
 mysqli_close($db);
 ?>
