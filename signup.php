@@ -5,6 +5,7 @@
  * Date: 30/11/2016
  * Time: 13:01
  */
+
 include ("Dbconnect.php");
 $name = $_POST["name"];
 $password = $_POST["password"];
@@ -25,7 +26,7 @@ if(mysql_num_rows($query) != 0) {
 
 
 
-header("Location: index.html");
+// header("Location: index.html");
 
 mysqli_close($db);
 ?>
