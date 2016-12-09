@@ -5,7 +5,7 @@ $contactDetails = $_POST["contactusdetails"];
 $adminID = $_POST["adminusername"];
 $clubGenre = $_POST["clubgenre"];
 $clubDescription = $_POST["clubdescription"];
-$clubID = 100000;
+$clubID = rand(100000, 999999);
 
 
 
@@ -14,7 +14,7 @@ $query = mysql_query("SELECT clubName FROM CLUB WHERE clubName=$clubName", $con)
 $query1 = mysql_query("SELECT ClubID FROM CLUB WHERE ClubID=$clubID", $con);
 
 while(mysql_num_rows($query1) !=0){
-    $clubID = $clubID + 1;
+    $clubID = rand(100000, 999999);
 }
 
 if( mysql_num_rows($query) != 0){
