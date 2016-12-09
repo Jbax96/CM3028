@@ -5,7 +5,7 @@ $contactDetails = $_POST["contactusdetails"];
 $adminID = $_POST["adminusername"];
 $clubGenre = $_POST["clubgenre"];
 $clubDescription = $_POST["clubdescription"];
-$clubID =  rand(100000,999999);
+$clubID = rand(100000,999999);
 
 while (mysql_num_rows($query) != 0)
 {
@@ -17,7 +17,7 @@ if( mysql_num_rows($query) != 0){
     echo "Club Name already exists";
 }
 else {
-    $sql = "INSERT INTO CLUB (ClubID ,AdminID, clubName, clubDescription, contactInfo, Genre) VALUES ( '$clubId,'$adminID', '$clubName', '$clubDescription', '$contactDetails', '$Genre')";
+    $sql = "INSERT INTO CLUB (ClubID ,AdminID, clubName, clubDescription, contactInfo, Genre) VALUES ( '$clubID,'$adminID', '$clubName', '$clubDescription', '$contactDetails', '$clubGenre')";
     if (mysqli_query($db, $sql)) {
         echo "New club created successfully";
         header("Location: index.html");
