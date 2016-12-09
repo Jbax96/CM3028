@@ -22,7 +22,7 @@ if( mysql_num_rows($query) != 0){
 }
     else {
 
-        $sql = "INSERT INTO CLUB (ClubID, AdminID, clubName, clubDescription, contactInfo, Genre) VALUES ('$clubID' , '$adminID' , '$clubName' , '$clubDescription' , '$contactDetails' , '$Genre')";
+        $sql = "INSERT INTO CLUB (ClubID, AdminID, clubName, clubDescription, contactInfo, Genre) VALUES ('$clubID' , '$adminID' , '$clubName' , '$clubDescription' , '$contactDetails' , '$clubGenre')";
         if (mysqli_query($db, $sql)) {
             echo "New club created successfully";
             header("Location: index.html");
