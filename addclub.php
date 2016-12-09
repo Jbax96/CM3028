@@ -6,20 +6,30 @@ $adminID = $_POST["adminusername"];
 $clubGenre = $_POST["clubgenre"];
 $clubDescription = $_POST["clubdescription"];
 $clubID = 100000;
-$clubID = $clubID + 1;
+
+
+
+$query = mysql_query("SELECT clubName FROM CLUB WHERE clubName=$clubName", $con);
+
+$query1 = mysql_query("SELECT ClubID FROM CLUB WHERE ClubID=$clubID", $con);
+
+while(mysql_num_rows($query1) !=0){
+    $clubID = $clubID + 1;
+}
 
 if( mysql_num_rows($query) != 0){
     echo "Club Name already exists";
 }
-else {
-    $sql = "INSERT INTO CLUB ( ClubID , AdminID, clubName, clubDescription, contactInfo, Genre) VALUES ( '$clubID,'$adminID', '$clubName', '$clubDescription', '$contactDetails', '$clubGenre')";
-    if (mysqli_query($db, $sql)) {
-        echo "New club created successfully";
-        header("Location: index.html");
-    } else {
-        echo "Error: " . $sql . mysqli_error($db);
+    else {
+
+        $sql = "INSERT INTO CLUB (ClubID, AdminID, clubName, clubDescription, contactInfo, Genre) VALUES ('$clubID' , '$adminID' , '$clubName' , '$clubDescription' , '$contactDetails' , '$Genre')";
+        if (mysqli_query($db, $sql)) {
+            echo "New club created successfully";
+            header("Location: index.html");
+        } else {
+            echo "Error: " . $sql . mysqli_error($db);
+        }
     }
-}
 
 mysqli_close($db);
 ?>
