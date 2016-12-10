@@ -7,15 +7,9 @@ $accountType = $_POST["accountType"];
 $newPassword = $_POST["newPassword"];
 
 
-$sql = "INSERT INTO USERS ( userID, Password, emailAddress, accessID) VALUES ( '$name', '$newPassword', '$email', '$accountType')";
-
-if (mysqli_query($db, $sql)) {
-    echo "New record created successfully";
-    header("Location: index.html");
-} else {
-    echo "Error: " . $sql . mysqli_error($db);
-}
-
+$sql = "UPDATE USERS
+SET password='$newPassword';
+WHERE userID='$name''";
 
 mysqli_close($db);
 ?>
