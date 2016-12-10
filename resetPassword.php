@@ -4,9 +4,12 @@ $name = $_POST["resetUser"];
 $newPassword = $_POST["newPassword"];
 
 
-$sql = "UPDATE USERS
-SET password='$newPassword';
-WHERE userID='$name'";
+$sql = "UPDATE `users` SET
+`UserID` = 'Alfred Hendry',
+`Password` = 'password',
+`emailAddress` = 'alfredhendry@talktalk.net',
+`AccessID` = '3'
+WHERE `UserID` = 'Alfred Hendry' AND `UserID` = 'Alfred Hendry' COLLATE utf8mb4_bin";
 
 mysqli_close($db);
 ?>
