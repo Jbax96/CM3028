@@ -3,8 +3,6 @@ include ("Dbconnect.php");
 $name = $_POST["resetUser"];
 $newPassword = $_POST["newPassword"];
 
-
-$sql = "UPDATE USERS SET password = '$newPassword' WHERE `UserID` = '$name'";
-
+$query = "UPDATE Users SET userID = '$newPassword' WHERE UserID = '$name'";
 mysqli_close($db);
 ?>
