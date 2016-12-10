@@ -92,14 +92,14 @@
             <div class="control-group form-group">
                 <div class="controls">
                     <label>Username:</label>
-                    <input type="text" class="form-control" name="name" required data-validation-required-message="Please enter a username.">
+                    <input type="text" class= "form-control" name= "name" required data-validation-required-message="Please enter a username.">
                     <p class="help-block"></p>
                 </div>
             </div>
             <div class="control-group form-group">
                 <div class="controls">
                     <label>Password:</label>
-                    <input type="password" class="form-control" name="password" required data-validation-required-message="Please enter a password.">
+                    <input type="password" class= "form-control" name= "password" required data-validation-required-message="Please enter a password.">
                 </div>
             </div>
             <div id="success"></div>
@@ -109,8 +109,10 @@
 
         <form action ="resetPassword.php" method ="post" name="sentMessage">
             <div id="passwordReset"></div>
+
             <label>Username:</label>
-            <input type -="text" class="form-control" name = "name" data-validation-required-message="Please enter a username.">
+            <input type = "text" class="form-control" name = "resetUser" data-validation-required-message="Please enter a username.">
+            <input type = "text" class ="form-control" name = "resetPassword" data-validation-required-message="Please enter desired password.">
             <button type = "submit" class = "btn btn-primary">Reset Password</button>
 
         </form>
