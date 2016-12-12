@@ -28,7 +28,7 @@ else if (mysqli_num_rows($passQuery) != 0){
 } else {
     echo "<script>
     alert('Username and password do not match');
-    window.location.reload();
+    window.location.href='login.html';
     </script>";
 }
 
