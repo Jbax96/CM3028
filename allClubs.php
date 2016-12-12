@@ -12,7 +12,6 @@ if(!result){
 }
 echo "<h1> List of Clubs</h1>";
 while($row = $result -> fetch_array()) {
-   // echo(
     $AdminID = $row['AdminID'];
     $clubName = $row['clubName'];
     $clubDescription = $row['clubDescription'];
@@ -20,7 +19,6 @@ while($row = $result -> fetch_array()) {
     $Genre = $row['Genre'];
 
     echo "<p>" . $AdminID . " " . $clubName . " " . $clubDescription . " " . $contactInfo . " " . $Genre . " ";
-    // );
 }
 
 $result->close();
