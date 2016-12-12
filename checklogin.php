@@ -6,33 +6,26 @@ error_reporting(E_ALL);
 include ("Dbconnect.php");
 $name = $_POST["name"];
 $password = $_POST["password"];
+$email = $_POST["email"];
+$accountType = $_POST["accountType"];
+$nameQuery = mysql_query("SELECT UserID FROM USERS WHERE UserID=$name", $con);
 
-$nameQuery = mysqli_query($db,"SELECT UserID FROM USERS WHERE UserID='$name'");
-$passQuery = mysqli_query($db,"SELECT UserID, Password FROM USERS WHERE UserID='$name' AND Password='$password'");
-
-if (mysqli_num_rows($nameQuery) == 0)
+if (mysql_num_rows($query) != 0)
 {
-    echo "<script>
-    alert('Username does not exist');
-    window.location.href='login.html';
-    </script>";
+    $passQuery = mysql_query("SELECT Password FROM USERS WHERE Password=$password", $con);
+    if ( mysql_num_rows($passQuery) != 0){
+        echo "Invalid Username";
+    }
 }
-else if (mysqli_num_rows($passQuery) != 0){
+else {
+    $sql = "INSERT INTO USERS ( userID, password, emailAddress, accessID) VALUES ( '$name', '$password', '$email', '$accountType')";
 
-    $sql = mysqli_query($db, "SELECT AccessID FROM USERS WHERE UserID='$name' AND Password='$password'");
-
-    if (mysqli_num_rows($sql) != 0) {
-        $row = mysqli_fetch_row($sql);
-        setcookie('access_cookie',$row);
-        header("Location: loggedin.php");
+    if (mysqli_query($db, $sql)) {
+        echo "New record created successfully";
+        header("Location: index.html");
     } else {
         echo "Error: " . $sql . mysqli_error($db);
     }
-} else {
-    echo "<script>
-    alert('Incorrect password');
-    window.location.href='login.html';
-    </script>";
 }
 
 mysqli_close($db);
