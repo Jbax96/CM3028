@@ -1,6 +1,5 @@
 
 <?php
-include ("style.php");
 include ("Dbconnect.php");
 
 $query="SELECT * FROM CLUB";
