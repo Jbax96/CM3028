@@ -30,6 +30,64 @@
   <![endif]-->
 
 </head>
+<script>
+var infoWindow = new google.maps.InfoWindow;
+
+function bindInfoWindow(marker, map, infoWindow, html){
+google.maps.event.addListener(marker, 'click', function(){
+infoWindow.setContent(html);
+infoWindow.open(map,marker);
+});
+}
+
+function load(){
+var map = new google.map.Map(document.getElementById('map'),{
+center: new google.maps.LatLng(57.0577505,-2.1381166),
+zoom:13,
+mapTypeId: 'roadmap'
+});
+}
+downloadURL("XML.php", function(data){
+var xml = data.responseXML;
+
+var locations = xml.documentElement.getElementsByTagName("location");
+
+for(var i = 0; i < location.length; i++){
+var point = new google.maps.LatLng(
+parseFloat(location[i].getAttribute("Longitude")),
+parseFloat(location[i].getAttribute("Latitude"))
+);
+
+var name = location[i].getAttribute("name");
+var locationType = location[i].getAttribute("locationType");
+var html = "<b>" + name + "</b> <br/>" + type;
+
+var location = new google.maps.Marker({
+map:map,
+position: point
+});
+
+bindInfoWindow(location, map, infoWindow, html)
+}
+
+});
+
+function downloadURL(url, callback){
+var request = window.ActiveXObject ?
+new ActiveXObject('Microsoft.XMLHTTP'):
+new XMLHttpRequest;
+
+request.onreadystatechange = function(){
+if(request.readyState == 4){
+callback(request, request.status);
+}
+};
+
+request.open('GET', url, true);
+request.send(null);
+}
+
+</script>
 <style>
   #map {
     height: 400px;
@@ -209,62 +267,6 @@
       zoom: 15,})
   }
 
-  var infoWindow = new google.maps.InfoWindow;
-
-  function bindInfoWindow(marker, map, infoWindow, html){
-    google.maps.event.addListener(marker, 'click', function(){
-        infoWindow.setContent(html);
-        infoWindow.open(map,marker);
-    });
-  }
-
-  function load(){
-    var map = new google.map.Map(document.getElementById('map'),{
-      center: new google.maps.LatLng(57.0577505,-2.1381166),
-      zoom:13,
-      mapTypeId: 'roadmap'
-    });
-  }
-  downloadURL("XML.php", function(data){
-    var xml = data.responseXML;
-
-    var locations = xml.documentElement.getElementsByTagName("location");
-
-    for(var i = 0; i < location.length; i++){
-        var point = new google.maps.LatLng(
-                parseFloat(location[i].getAttribute("Longitude")),
-                parseFloat(location[i].getAttribute("Latitude"))
-        );
-
-      var name = location[i].getAttribute("name");
-      var locationType = location[i].getAttribute("locationType");
-      var html = "<b>" + name + "</b> <br/>" + type;
-
-      var location = new google.maps.Marker({
-        map:map,
-        position: point
-      });
-
-      bindInfoWindow(location, map, infoWindow, html)
-    }
-
-  });
-
-  function downloadURL(url, callback){
-    var request = window.ActiveXObject ?
-            new ActiveXObject('Microsoft.XMLHTTP'):
-            new XMLHttpRequest;
-
-    request.onreadystatechange = function(){
-      if(request.readyState == 4){
-        callback(request, request.status);
-
-      }
-    };
-
-    request.open('GET', url, true);
-    request.send(null);
-  }
 
 </script>
 <!-- /.container -->
