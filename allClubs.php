@@ -17,7 +17,7 @@ while($row = $result -> fetch_array()) {
         $contactInfo = $row['contactInfo'];
         $Genre = $row['Genre'];
         $AdminID = $row['AdminID'];
-     echo "Admin: " .AdminID . "<br>Club Name: " .clubName . "<br>Description: " .$clubDescription . "Contact: " .$contactInfo . "Genre: " .$Genre;
+     echo "Admin: " . $AdminID . "<br>Club Name: " . $clubName . "<br>Description: " . $clubDescription . "<br>Contact: " . $contactInfo . "<br>Genre: " . $Genre;
    // );
 }
 
