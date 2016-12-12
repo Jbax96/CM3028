@@ -8,7 +8,6 @@ $query = "SELECT * FROM locations WHERE 1";
 $result =$db-> query($query);
 if(!result){
     die('Nothing in result');
-
 }
 
 header("Content-type: text/xml");
