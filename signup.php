@@ -18,7 +18,7 @@ if(mysql_num_rows($result) != 0) {
     $_SESSION['name']=$name;
     echo "<script>
     alert('Username already exists');
-    window.location.href='login.html';
+    window.location.href='signup.html';
     </script>";
     //checks if the passwords match
 } else if ($password == $password2){
@@ -34,7 +34,7 @@ if(mysql_num_rows($result) != 0) {
 } else {
     echo "<script>
     alert('Two passwords do not match');
-    window.location.href='login.html';
+    window.location.href='signup.html';
     </script>";
 }
 
