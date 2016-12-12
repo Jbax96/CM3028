@@ -7,19 +7,21 @@ include ("Dbconnect.php");
 $name = $_POST["name"];
 $password = $_POST["password"];
 
-$nameQuery = "SELECT UserID FROM USERS WHERE UserID='$name'";
-$passQuery = "SELECT Password FROM USERS WHERE UserID='$name' AND Password='$password'";
+$nameQuery = mysqli_query($db,"SELECT UserID FROM USERS WHERE UserID='$name'");
+$passQuery = mysqli_query($db,"SELECT Password FROM USERS WHERE UserID='$name' AND Password='$password'");
 
 if (mysqli_num_rows($nameQuery) != 0)
 {
     echo "Username does not exist";
 }
-else if ($passQuery){
+else if (mysqli_num_rows($passQuery) != 0){
 
+    $sql = mysqli_query($db, "SELECT AccessID FROM USERS WHERE UserID='$name' AND Password='$password'");
 
     if (mysqli_query($db, $sql)) {
-        echo "New record created successfully";
-        header("Location: index.html");
+        $row = mysqli_fetch_row($sql);
+        setcookie('access_cookie',$row);
+        header("Location: loggedin.php");
     } else {
         echo "Error: " . $sql . mysqli_error($db);
     }

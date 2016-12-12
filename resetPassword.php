@@ -1,5 +1,24 @@
 <?php
 include ("Dbconnect.php");
+
+function createRandomPassword() {
+    $chars = "ABCDEFGHJKLMNOPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz0123456789";
+    $i = 0;
+    $pass = '' ;
+
+    while ($i <= 8) {
+        $num = mt_rand(0,61);
+        $tmp = substr($chars, $num, 1);
+        $pass = $pass . $tmp;
+        $i++;
+    }
+    return $pass;
+}
+
+function sendMail($name, $email) {
+    $subject = 'Your New Password';
+}
+
 $name = $_POST["name"];
 
 $nameQuery = "SELECT UserID FROM USERS WHERE UserID='$name'";
