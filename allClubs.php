@@ -8,8 +8,6 @@ $queryContact = mysql_query("SELECT contactInfo FROM CLUB WHERE contactInfo=$con
 $queryGenre = mysql_query("SELECT Genre FROM CLUB WHERE Genre=$genre", $con);
 $queryAdmin = mysql_query("SELECT AdminID FROM CLUB WHERE AdminID=$AdminID", $con);
 
-$query = mysql_query("SELECT clubName FROM CLUB WHERE clubName='Junior Jazzercise'", $con);
-
 $dom = new DOMDocument("1.0");
 $node =$dom->createElement("locations");
 $parnode = $dom ->appendChild($node);
@@ -22,13 +20,11 @@ if(!result){
 
 header("Content-type: text/xml");
 while($row = $result -> fetch_array()) {
-    $node = $dom->createElement("location");
-    $newnode = $parnode->appendChild($node);
-    $newnode->setAttribute("AdminID", $row['Name']);
-    $newnode->setAttribute("clubName", $row['Club Name']);
-    $newnode->setAttribute("Description", $row['Club Description']);
-    $newnode->setAttribute("contactInfo", $row['Contact Information']);
-    $newnode->setAttribute("Genre", $row['Genre']);
+    echo($queryAdmin);
+    echo($queryName);
+    echo($queryDescription);
+    echo($queryContact);
+    echo($queryGenre);
 }
 
 $result->close();
