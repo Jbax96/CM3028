@@ -7,12 +7,15 @@ include ("Dbconnect.php");
 $name = $_POST["name"];
 $password = $_POST["password"];
 
-$nameQuery = mysqli_query($db,"SELECT UserID FROM USERS WHERE UserID='".$name."'");
+$nameQuery = mysqli_query($db,"SELECT UserID FROM USERS WHERE UserID='$name'");
 $passQuery = mysqli_query($db,"SELECT UserID, Password FROM USERS WHERE UserID='$name' AND Password='$password'");
 
 if (mysqli_num_rows($nameQuery) != 0)
 {
-    echo "Username does not exist";
+    echo "<script>
+    alert('Username does not exist');
+    window.location.href='login.html';
+    </script>";
 }
 else if (mysqli_num_rows($passQuery) != 0){
 
