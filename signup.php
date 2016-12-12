@@ -15,7 +15,7 @@ $query = mysql_query("SELECT UserID FROM USER WHERE UserID=$name", $con);
 
 if(mysql_num_rows($query) > 0) {
     $_SESSION['name']=$name;
-    header("Location: singup.php");
+    header("Location: signup.php");
     echo("Username already exist");
 } else{
     $sql = "INSERT INTO USERS ( userID, password, emailAddress, accessID) VALUES ( '$name', '$password', '$email', '$accountType')";
