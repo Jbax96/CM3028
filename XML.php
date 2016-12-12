@@ -4,7 +4,6 @@ include ("Dbconnect.php");
 $dom = new DOMDocument("1.0");
 $node =$dom->createElement("locations");
 $parnode = $dom ->appendChild($node);
-
 $query = "SELECT * FROM locations WHERE 1";
 $result =$db-> query($query);
 if(!result){
