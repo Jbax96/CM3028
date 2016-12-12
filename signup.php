@@ -26,6 +26,8 @@ if(mysql_num_rows($result) != 0) {
     } else {
         echo "Error: " .$sql . mysqli_error($db);
     }
+} else {
+    echo "Passwords don't match";
 }
 
 mysqli_close($db);
