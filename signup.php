@@ -12,7 +12,7 @@ $password = $_POST["password"];
 $password2 = $_POST["password2"];
 $email = $_POST["email"];
 $accountType = $_POST["accountType"];
-$result = mysqli_query("SELECT UserID FROM USER WHERE UserID=$name");
+$result = mysqli_query("SELECT UserID FROM USERS WHERE UserID=$name");
 
 if(mysql_num_rows($result) != 0) {
     $_SESSION['name']=$name;
