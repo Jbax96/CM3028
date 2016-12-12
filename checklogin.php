@@ -14,19 +14,14 @@ if (mysql_num_rows($query) != 0)
 {
     $passQuery = mysql_query("SELECT Password FROM USERS WHERE Password=$password", $con);
     if ( mysql_num_rows($passQuery) != 0){
-        
+        echo("success");
+        header("location: index.html");
     }
 }
 else {
-    $sql = "INSERT INTO USERS ( userID, password, emailAddress, accessID) VALUES ( '$name', '$password', '$email', '$accountType')";
+    echo("Invalid Account");
+    header("location: login.html");
 
-    if (mysqli_query($db, $sql)) {
-        echo "New record created successfully";
-        header("Location: index.html");
-    } else {
-        echo "Error: " . $sql . mysqli_error($db);
-    }
-}
 
 mysqli_close($db);
 ?>
