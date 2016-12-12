@@ -11,6 +11,8 @@
 
   <title>Sportlethen - Map Route</title>
 
+  <script> src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDI8PZn_fFh_0JPHrCoWuwYD8UFj7YpHUI&callback=initMap"
+      type = "text/JavaScript"</script>
   <!-- Bootstrap Core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -28,14 +30,9 @@
   <![endif]-->
 
 </head>
-<style>
-  #map {
-    height: 400px;
-    width: 100%;
-  }
-</style>
 
 <body onload="load()">
+    <div id = "map" style = "width: 500px; height: 300px"></div>
 
 <!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
