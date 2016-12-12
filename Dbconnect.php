@@ -16,7 +16,7 @@ if($db ->connect_errno){
     die('ConnectFailed['.$db->connect_error.'}');
 }
 
-echo "Connected successfully";
+
 
 //SQL To Create Table USERS
 $sql = "CREATE TABLE USERS (
@@ -53,7 +53,7 @@ $sql = "CREATE TABLE PHOTO(
 PhotoID CHAR(6)NOT NULL,
 ClubID CHAR(6) NOT NULL,
 AdminID VARCHAR(15) NOT NULL,
-photo LONGBLOB NOT NULL,
+photo BLOB NOT NULL,
 description VARCHAR(50) NOT NULL,
 PRIMARY KEY (PhotoID),
 CONSTRAINT LOCATION_ibfk_3  FOREIGN KEY (ClubID) REFERENCES LOCATIONS (LocationID),
@@ -66,11 +66,9 @@ Genre VARCHAR(20) NOT NULL ,
 ClubID CHAR(6) NOT NULL,
 name VARCHAR(50) NOT NULL,
 AdminID VARCHAR(15) NOT NULL,
-name VARCHAR(50) NOT NULL,
 description VARCHAR(50) NOT NULL,
 PRIMARY KEY (Genre),
-CONSTRAINT LOCATION_ibfk_5 FOREIGN KEY (LocationID) REFERENCES LOCATIONS (LocationID),
-CONSTRAINT LOCATION_ibfk_6  FOREIGN KEY (UserID) REFERENCES USERS (USerID)
+CONSTRAINT LOCATION_ibfk_6  FOREIGN KEY (AserID) REFERENCES USERS (UserID)
 )";
 
 //SQL To Create Table LOCATIONS
