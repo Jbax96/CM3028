@@ -22,12 +22,11 @@ if(mysql_num_rows($result) != 0) {
 
     if (mysqli_query($db, $sql)) {
         echo "New record created successfully";
+        header("location: index.html");
     } else {
         echo "Error: " .$sql . mysqli_error($db);
     }
 }
-
-header("location: index.html");
 
 mysqli_close($db);
 ?>
