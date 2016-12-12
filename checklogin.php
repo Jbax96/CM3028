@@ -7,8 +7,8 @@ include ("Dbconnect.php");
 $name = $_POST["name"];
 $password = $_POST["password"];
 
-$nameQuery = "SELECT UserID FROM USERS WHERE UserID=$name";
-$passQuery = "SELECT Password FROM USERS WHERE UserID=$name AND Password=$password";
+$nameQuery = "SELECT UserID FROM USERS WHERE UserID='$name'";
+$passQuery = "SELECT Password FROM USERS WHERE UserID='$name' AND Password='$password'";
 
 if (mysqli_num_rows($nameQuery) != 0)
 {
