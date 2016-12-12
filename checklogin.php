@@ -12,7 +12,10 @@ $passQuery = mysqli_query($db,"SELECT UserID, Password FROM USERS WHERE UserID='
 
 if (mysqli_num_rows($nameQuery) != 0)
 {
-    echo "Username does not exist";
+    echo "<script>
+    alert('Username does not exist');
+    window.location.href='login.html';
+    </script>";
 }
 else if (mysqli_num_rows($passQuery) != 0){
 
