@@ -19,8 +19,7 @@ while($row = $result -> fetch_array()) {
     $contactInfo = $row['contactInfo'];
     $Genre = $row['Genre'];
 
-    echo "Admin: " . $AdminID . "<br>Club Name: " . $clubName . "<br>Description: " . $clubDescription . "<br>Contact: " . $contactInfo . "<br>Genre: " . $Genre . "<br>meme";
-    echo "<form><input type='text' value='meme'";
+    echo "Admin: " . $AdminID . "<br>Club Name: " . $clubName . "<br>Description: " . $clubDescription . "<br>Contact: " . $contactInfo . "<br>Genre: " . $Genre;
     // );
 }
 
