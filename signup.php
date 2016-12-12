@@ -17,15 +17,17 @@ $result = mysqli_query("SELECT UserID FROM USERS WHERE UserID='$name'");
 if(mysql_num_rows($result) != 0) {
     $_SESSION['name']=$name;
     echo("Username already exists");
+    //checks if the passwords match
 } else if ($password == $password2){
     $sql = "INSERT INTO USERS ( UserID, Password, emailAddress, accessID) VALUES ( '$name', '$password', '$email', '$accountType')";
-
+//creates new account if passwords match
     if (mysqli_query($db, $sql)) {
         echo "New record created successfully";
         header("location: index.html");
     } else {
         echo "Error: " .$sql . mysqli_error($db);
     }
+    //if passwords don't match, print
 } else {
     echo "Password doesn't match";
 }
