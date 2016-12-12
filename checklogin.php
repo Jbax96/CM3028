@@ -8,7 +8,7 @@ $name = $_POST["name"];
 $password = $_POST["password"];
 
 $nameQuery = mysqli_query($db,"SELECT UserID FROM USERS WHERE UserID='".$name."'");
-$passQuery = mysqli_query($db,"SELECT UserID, Password FROM USERS WHERE UserID='".$name."' AND Password='".$password."'");
+$passQuery = mysqli_query($db,"SELECT UserID, Password FROM USERS WHERE UserID='$name' AND Password='$password'");
 
 if (mysqli_num_rows($nameQuery) != 0)
 {
@@ -26,7 +26,7 @@ else if (mysqli_num_rows($passQuery) != 0){
         echo "Error: " . $sql . mysqli_error($db);
     }
 } else {
-    echo "Error: " . $passQuery . mysqli_error($db);
+    echo "Error: Username and password do not match";
 }
 
 mysqli_close($db);
