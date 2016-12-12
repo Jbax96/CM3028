@@ -1,17 +1,6 @@
-<head>
-    <div class="container">
-        <div class="jumbotron">
-            <h1>Bootstrap tutorial</h1>
-            <p>Bootstrap is the most popular HTML, CSS, and JS framework for developing
-                responsive, mobile-first projects on the web.</p>
-        </div>
-        <p>This is some text</p>
-        <p>This is some more text</p>
-    </div>
-</head>
 
 <?php
-echo '<link rel="stylesheet" type="text/css" href="modern-business.css"></head>';
+include ("style.php");
 include ("Dbconnect.php");
 
 $query="SELECT * FROM CLUB";
