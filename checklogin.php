@@ -26,7 +26,10 @@ else if (mysqli_num_rows($passQuery) != 0){
         echo "Error: " . $sql . mysqli_error($db);
     }
 } else {
-    echo "Error: Username and password do not match";
+    echo "<script>
+    alert('There are no fields to generate a report');
+    </script>";
+    header("Location: login.html");
 }
 
 mysqli_close($db);
