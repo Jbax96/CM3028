@@ -8,4 +8,5 @@
 session_start();
 $accesslevel = $_COOKIE['access_cookie'];
 
-echo "<br/><br/>".$accesslevel;
+echo "<br/>Successfully logged in";
+echo "<br/>".$accesslevel;

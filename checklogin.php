@@ -25,6 +25,8 @@ else if (mysqli_num_rows($passQuery) != 0){
     } else {
         echo "Error: " . $sql . mysqli_error($db);
     }
+} else {
+    echo "Error: " . $passQuery . mysqli_error($db);
 }
 
 mysqli_close($db);
