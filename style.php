@@ -29,3 +29,4 @@ font-family: <?=$font_family?>;
 font-size: <?=$font_size?>;
 border: <?=$border?> #DDD;
 }
+?>
