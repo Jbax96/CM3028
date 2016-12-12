@@ -48,6 +48,7 @@ width: 100%;
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
+      <!-- logo homepage link -->
       <a class="navbar-brand" href="index.html"><img src="img/sportlethen.png"></a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -135,8 +136,7 @@ width: 100%;
 
   <!-- /.row -->
 
-  <!-- Contact Form -->
-  <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
+<!-- button onclick scripts to display the location on the map -->
   <div class="row">
     <div class="col-md-8">
       <button onclick="buttonPress1()">Portlethen Moss</button>
@@ -144,6 +144,7 @@ width: 100%;
       <button onclick="buttonPress2()">Newtonhill/Skateraw Walk</button>
       <button onclick="buttonPress4()">North Kincardine Viewpoints</button>
       <button onclick="buttonPress5()">Stonehaven</button>
+      <!-- links to PDF files of the routes/history/artwork provided by client-->
       <h3>Routes</h3>
       <li>
         <a href="viewpoint.pdf">North Kincardineshire Viewpoints</a>
@@ -180,28 +181,33 @@ width: 100%;
   </footer>
 
 </div>
+<!-- javascrpit functions to display new maps on button click, centre of the map is displayed by co-ordinates -->
 <script>
+  //function for portlethen moss
   function buttonPress1(){
       map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 57.058294, lng: -2.1497601},
           zoom: 15,})
   }
+  //function for newtonhill/skateraw walk
   function buttonPress2(){
       map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 57.0324583, lng: -2.1495111},
           zoom: 15,})
   }
+  //function for torry battery
   function buttonPress3(){
       map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 57.1416562, lng: -2.0618597},
           zoom: 15,})
   }
+  //function for viewpoints
   function buttonPress4(){
       map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 56.9985158, lng: -2.2488861},
           zoom: 15,})
   }
-
+//function for stonehaven
   function buttonPress5(){
       map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 56.9591114, lng: -2.2371445},
