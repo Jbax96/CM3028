@@ -6,14 +6,13 @@ error_reporting(E_ALL);
 include ("Dbconnect.php");
 $name = $_POST["name"];
 $password = $_POST["password"];
-$email = $_POST["email"];
-$accountType = $_POST["accountType"];
-$nameQuery = mysql_query("SELECT UserID FROM USERS WHERE UserID=$name", $con);
 
-if (mysql_num_rows($query) != 0)
+$query = "SELECT Password FROM USERS WHERE UserID=$name";
+
+if (mysqli_num_rows($query) != 0)
 {
-    $passQuery = mysql_query("SELECT Password FROM USERS WHERE Password=$password", $con);
-    if ( mysql_num_rows($passQuery) != 0){
+    $passQuery = mysqli_query("SELECT Password FROM USERS WHERE Password=$password", $con);
+    if ( mysqli_num_rows($passQuery) != 0){
         
     }
 }
