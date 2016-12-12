@@ -1,5 +1,5 @@
 <?php
-
+include("modern-business.css");
 include ("Dbconnect.php");
 
 //$query = mysqli_query("SELECT clubName, clubDescription, contactInfo, Genre, AdminID FROM CLUB WHERE clubName={$clubName}, clubDescription={$clubDescription}, contactInfo={$contactInfo}, Genre={$Genre}, AdminID={$AdminID}", $con);
