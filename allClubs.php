@@ -1,5 +1,8 @@
 
 <?php
+include ("bootstrap.php");
+include ("modern-business.php");
+include ("style.php");
 include ("Dbconnect.php");
 
 $query="SELECT * FROM CLUB";
