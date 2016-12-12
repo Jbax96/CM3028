@@ -11,7 +11,7 @@
 </head>
 
 <?php
-echo '<link rel="stylesheet" type="text/css" href="style.css"></head>';
+echo '<link rel="stylesheet" type="text/css" href="modern-business.css"></head>';
 include ("Dbconnect.php");
 
 $query="SELECT * FROM CLUB";
