@@ -68,7 +68,6 @@
         <li>
           <a href="signup.html">Sign Up</a>
         </li>
-        <!-- dropdown for clubs pages -->
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Clubs <b class="caret"></b></a>
           <ul class="dropdown-menu">
@@ -208,6 +207,15 @@
       zoom: 15,})
   }
 
+  var infoWindow = new google.maps.InfoWindow;
+
+  function bindInfoWindow(marker, map, infoWindow, html){
+    google.maps.event.addListener(marker, 'click', function(){
+        infoWindow.setContent(html);
+        infoWindow.open(map,marker);
+    });
+  }
+
   function load(){
     var map = new google.map.Map(document.getElementById('map'),{
       center: new google.maps.LatLng(57.0577505,-2.1381166),
@@ -222,17 +230,23 @@
 
     for(var i = 0; i < location.length; i++){
         var point = new google.maps.LatLng(
-                parseFloat(location[i].getAttribute("startPointLongitude")),
-                parseFloat(location[i].getAttribute("startPointLatitude")),
-                parseFloat(location[i].getAttribute("endPointLongitude")),
-                parseFloat(location[i].getAttribute("endPointLatitude"))
+                parseFloat(location[i].getAttribute("Longitude")),
+                parseFloat(location[i].getAttribute("Latitude"))
         );
+
+      var name = location[i].getAttribute("name");
+      var locationType = location[i].getAttribute("locationType");
+      var html = "<b>" + name + "</b> <br/>" + type;
+
       var location = new google.maps.Marker({
         map:map,
         position: point
       });
+
+      bindInfoWindow(location, map, infoWindow, html)
     }
-  }
+
+  });
 
   function downloadURL(url, callback){
     var request = window.ActiveXObject ?

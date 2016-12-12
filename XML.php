@@ -16,10 +16,8 @@ while($row = $result -> fetch_array()) {
     $node = $dom->createElement("location");
     $newnode = $parnode->appendChild($node);
     $newnode->setAttribute("name", $row['Name']);
-    $newnode->setAttribute("startPointLongitude", $row['Start Point Longitude']);
-    $newnode->setAttribute("startPointLatitude", $row['Start Point Latitude']);
-    $newnode->setAttribute("endPointLongitude", $row['End Point Longitude']);
-    $newnode->setAttribute("endPointLatitude", $row['End Point Latitude']);
+    $newnode->setAttribute("Longitude", $row['Longitude']);
+    $newnode->setAttribute("Latitude", $row['Latitude']);
     $newNode->setAttribute("locationType", $row['Location Type']);
 }
 
