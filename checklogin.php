@@ -27,9 +27,9 @@ else if (mysqli_num_rows($passQuery) != 0){
     }
 } else {
     echo "<script>
-    alert('There are no fields to generate a report');
+    alert('Username and password do not match');
+    window.location.reload();
     </script>";
-    header("Location: login.html");
 }
 
 mysqli_close($db);
