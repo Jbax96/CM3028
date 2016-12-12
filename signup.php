@@ -20,8 +20,8 @@ if(mysql_num_rows($result) != 0) {
     alert('Username already exists');
     window.location.href='signup.html';
     </script>";
-    //checks if the passwords match
-} else if ($password == $password2){
+
+} else if ($password == $password2){ //checks if the passwords match
     $sql = "INSERT INTO USERS ( UserID, Password, emailAddress, accessID) VALUES ( '$name', '$password', '$email', '$accountType')";
     //creates new account if passwords match
     if (mysqli_query($db, $sql)) {
@@ -30,9 +30,9 @@ if(mysql_num_rows($result) != 0) {
     } else {
         echo "Error: " .$sql . mysqli_error($db);
     }
-    //if passwords don't match, print
+
 } else {
-    echo "<script>
+    echo "<script> //if passwords don't match, message box
     alert('Two passwords do not match');
     window.location.href='signup.html';
     </script>";

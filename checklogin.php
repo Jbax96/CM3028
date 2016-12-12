@@ -10,7 +10,7 @@ $password = $_POST["password"];
 $nameQuery = mysqli_query($db,"SELECT UserID FROM USERS WHERE UserID='$name'");
 $passQuery = mysqli_query($db,"SELECT UserID, Password FROM USERS WHERE UserID='$name' AND Password='$password'");
 
-if (mysqli_num_rows($nameQuery) != 0)
+if (mysqli_num_rows($nameQuery) == 0)
 {
     echo "<script>
     alert('Username does not exist');
@@ -21,7 +21,7 @@ else if (mysqli_num_rows($passQuery) != 0){
 
     $sql = mysqli_query($db, "SELECT AccessID FROM USERS WHERE UserID='$name' AND Password='$password'");
 
-    if (mysqli_query($db, $sql)) {
+    if (mysqli_num_rows($sql) != 0) {
         $row = mysqli_fetch_row($sql);
         setcookie('access_cookie',$row);
         header("Location: loggedin.php");
