@@ -4,7 +4,7 @@ $name = $_POST["name"];
 $password = $_POST["password"];
 $nameQuery = mysql_query("SELECT UserID FROM USERS WHERE UserID=$name", $con);
 
-if (mysql_num_rows($query) != 0)
+if (mysql_num_rows($namequery) != 0)
 {
     $passQuery = mysql_query("SELECT Password FROM USERS WHERE Password=$password", $con);
     if ( mysql_num_rows($passQuery) != 0){
