@@ -13,12 +13,14 @@ $email = $_POST["email"];
 $accountType = $_POST["accountType"];
 $query = mysql_query("SELECT UserID FROM USER WHERE UserID=$name", $con);
 
+$encrypted_password=md5($password);
+
 if(mysql_num_rows($query) > 0) {
     $_SESSION['name']=$name;
     header("Location: signup.php");
     echo"Username already exist";
 } else{
-    $sql = "INSERT INTO USERS ( userID, password, emailAddress, accessID) VALUES ( '$name', '$password', '$email', '$accountType')";
+    $sql = "INSERT INTO USERS ( userID, password, emailAddress, accessID) VALUES ( '$name', '$encrypted_password', '$email', '$accountType')";
 
     if (mysqli_query($db, $sql)) {
         echo "New record created successfully";
