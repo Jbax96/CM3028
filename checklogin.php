@@ -4,17 +4,31 @@ $name = $_POST["name"];
 $password = $_POST["password"];
 $nameQuery = mysql_query("SELECT UserID FROM USERS WHERE UserID=$name", $con);
 
-if (mysql_num_rows($namequery) != 0)
-{
-    $passQuery = mysql_query("SELECT Password FROM USERS WHERE Password=$password", $con);
-    if ( mysql_num_rows($passQuery) != 0){
-        echo"success";
-        header("location: index.html");
-    }
+// To protect MySQL injection (more detail about MySQL injection)
+$name = stripslashes($name);
+$password = stripslashes($mypassword);
+$name = mysql_real_escape_string($myusername);
+$password = mysql_real_escape_string($mypassword);
+
+
+$sql="SELECT * FROM USERS WHERE username='$name' and password='$password'";
+$result=mysql_query($sql);
+
+// Mysql_num_row is counting table row
+$count=mysql_num_rows($result);
+
+// If result matched $myusername and $mypassword, table row must be 1 row
+if($count==1){
+
+// Register $myusername, $mypassword and redirect to file "login_success.php"
+session_register("username");
+session_register("password"); 
+header("location:loggedin.php");
 }
 else {
-    echo"Invalid Account";
-    header("location: login.html");
+echo "Wrong Username or Password";
+}
+
 
 
 mysqli_close($db);
