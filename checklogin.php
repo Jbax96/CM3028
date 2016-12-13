@@ -22,7 +22,7 @@ if($count==1){
 // Register $myusername, $mypassword and redirect to file "login_success.php"
 session_register("username");
 session_register("password"); 
-header("location:loggedin.php");
+header("location:index.html");
 }
 else {
 echo "Wrong Username or Password";
