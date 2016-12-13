@@ -1,8 +1,7 @@
 <?php
 include ("Dbconnect.php");
 $name = $_POST["name"];
-$password = $_POST["password"];
-$nameQuery = mysql_query("SELECT UserID FROM USERS WHERE UserID=$name", $con);
+$password = $_POST["password"]
 
 // To protect MySQL injection (more detail about MySQL injection)
 $name = stripslashes($name);
