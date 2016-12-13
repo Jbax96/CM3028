@@ -9,8 +9,9 @@ $password = stripslashes($mypassword);
 $name = mysql_real_escape_string($myusername);
 $password = mysql_real_escape_string($mypassword);
 
+$encrypted_password=md5($password);
 
-$sql="SELECT * FROM USERS WHERE username='$name' and password='$password'";
+$sql="SELECT * FROM USERS WHERE username='$name' and password='$encrypted_password'";
 $result=mysql_query($sql);
 
 // Mysql_num_row is counting table row
@@ -21,7 +22,7 @@ if($count==1){
 
 // Register $myusername, $mypassword and redirect to file "login_success.php"
 session_register("username");
-session_register("password"); 
+session_register("encrypted_password"); 
 header("location:index.html");
 }
 else {
